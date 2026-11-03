@@ -31,18 +31,11 @@ graph TD
     F --> G{GOP Majority >= 51 Seats?}
 ```
 
-А сохраненный график `senate_simulation_chart.png` можно положить в папку `img` вашего репозитория и подключить стандартной строкой:
+
 ```markdown
 ![Senate Simulation Chart](img/senate_simulation_chart.png)
 ```
 
-<FollowUp>
-Если вы хотите, я могу:
-* **Интегрировать код генерации графика** прямо в основной файл `senate_simulation.py`, чтобы он считал цифры и сразу выдавал картинку пользователю при запуске.
-* Помочь составить **Git-команды** для быстрой заливки всего этого проекта на ваш GitHub.
-
-Что будет удобнее сделать?
-</FollowUp>
  
 ### Structural Parameters (November 2026 Baseline)
 *   **Total Senate Seats:** 100
