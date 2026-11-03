@@ -6,6 +6,44 @@ This repository contains a lightweight, programmatic mathematical model built us
 
 Unlike traditional media models that purely aggregate statewide polling averages, this model leverages a conditional **Monte Carlo simulation framework** combined with **Bayesian-style subjective weights** applied across three distinct scenarios of incumbent protection capacity.
 
+### Model Architecture
+
+```mermaid
+graph TD
+    A[Total US Senate: 100 Seats] --> B[Non-Election Seats: 65]
+    A --> C[Seats on the Ballot: 35]
+    
+    B --> B1[Democrat Base: 35]
+    B --> B2[Republican Base: 31]
+    
+    C --> C1[Incumbent Races: 32]
+    C --> C2[Open Seats: 3]
+    
+    C1 --> D1[Democrat Incumbents: 13]
+    C1 --> D2[Republican Incumbents: 19]
+    
+    C2 --> E1[Iowa, Ohio, Texas: 50/50 Coin Toss]
+    
+    D1 -- Run 10k Simulations per Rate 80/85/90% --> F[Final Weighted Probability Formula]
+    D2 -- Run 10k Simulations per Rate 80/85/90% --> F
+    E1 -- Run 10k Simulations per Rate 80/85/90% --> F
+    
+    F --> G{GOP Majority >= 51 Seats?}
+```
+
+А сохраненный график `senate_simulation_chart.png` можно положить в папку `img` вашего репозитория и подключить стандартной строкой:
+```markdown
+![Senate Simulation Chart](img/senate_simulation_chart.png)
+```
+
+<FollowUp>
+Если вы хотите, я могу:
+* **Интегрировать код генерации графика** прямо в основной файл `senate_simulation.py`, чтобы он считал цифры и сразу выдавал картинку пользователю при запуске.
+* Помочь составить **Git-команды** для быстрой заливки всего этого проекта на ваш GitHub.
+
+Что будет удобнее сделать?
+</FollowUp>
+ 
 ### Structural Parameters (November 2026 Baseline)
 *   **Total Senate Seats:** 100
 *   **Non-Election Baseline (Safe Hold):** Democrats hold **35** seats, Republicans hold **31** seats.
